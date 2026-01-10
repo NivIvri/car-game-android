@@ -10,7 +10,7 @@ The player controls a car by tilting the device. Horizontal tilt moves the car l
 ## Project Description
 
 The game uses the phone’s accelerometer to translate physical device movement into in-game actions.  
-During development, special attention was given to separating game logic from UI code and handling system resources such as sensors, audio, and vibration in a safe way.
+During development, special attention was given to separating game logic from UI code and handling system resources such as sensors, audio, vibration, and location services in a safe and controlled way.
 
 The project includes multiple screens, persistent score storage, and feedback mechanisms such as sound and vibration to improve the user experience.
 
@@ -23,7 +23,9 @@ The project includes multiple screens, persistent score storage, and feedback me
 - Background music and sound effects
 - Vibration feedback for player actions
 - Top 10 high-score saving and display
+- Extended driving track logic
 - Navigation between multiple activities and fragments
+- Google Maps integration
 
 ---
 
@@ -61,7 +63,7 @@ User interface layer:
 ### `fragment`
 Fragment-based screens:
 - `ListFragment` – displays the score list
-- `MapFragment` – additional screen for map-related features
+- `MapFragment` – map-based screen using Google Maps
 
 ---
 
@@ -75,33 +77,16 @@ Helper classes used across the project:
 
 ---
 
-## Design Considerations
+## Google Maps API Key Setup
 
-- Clear separation between UI, logic, and data
-- Use of callbacks to reduce tight coupling between components
-- Proper lifecycle handling for sensors and media components
-- Avoiding memory leaks by careful use of Context references
+This project uses Google Maps features that require an API key.
 
----
+For security reasons, the API key is **not included in the repository**.
 
-## Technologies
+### How to configure the API key
 
-- Kotlin
-- Android SDK
-- Accelerometer Sensor API
-- MediaPlayer
-- RecyclerView
+1. Open (or create) the file `local.properties` in the **root directory** of the project.
+2. Add the following line:
 
----
-
-## Running the Project
-
-1. Open the project in Android Studio
-2. Run the app on an emulator or a physical Android device
-3. Tilt the device to control the car
-
----
-
-## Notes
-
-This project was developed as part of an Android development course and focuses on practical experience with sensors, game logic, and application structure rather than advanced graphics.
+```properties
+MAPS_API_KEY=your_google_maps_api_key_here
